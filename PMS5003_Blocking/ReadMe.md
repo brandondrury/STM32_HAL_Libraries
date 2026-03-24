@@ -56,3 +56,7 @@ If errors are returned, see PMS5003_Measurement. This function should explain al
  - The pin1 labeling in the datasheet is opposite of Kicad for MPN: 0530480810 using the Molex_PicoBlade_53048-0810_1x08_P1.25mm_Horizontal footprint from the Kicad library. I had to flip the part over so that it's on the bottom side of my PCB, but it does work. Using PTH saved my azz on this one.
 
  - The PMS5003 seems to fluctuate between pulling 40-60mA based on the crude meter on my bench power supply. I'd consider adding some additional capacitance and factor that in to your board's current usage if using a custom PCB.
+ - The PMS5003 has a reset option.  I should have connected this to a GPIO pin on the STM32 (possibly via MOSFET...not sure about the current drain on the reset pin.)  I can imagine there are times when the sensor should be reset.
+
+## Features For Later
+- Sleep mode.  The sensor pulls a good 40mA and the datasheet indicates that this sensor will "wear out"...or just get dirty.  There is value to putting it to sleep.
